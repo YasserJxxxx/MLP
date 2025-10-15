@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía | Clasificación IRIS con MLP - specter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Definición de variables CSS para colores */
+        :root {
+            --color-primary: #004d99; /* Azul Oscuro */
+            --color-secondary: #00bcd4; /* Cian Vivos */
+            --color-success: #4CAF50; /* Verde Éxito */
+            --color-accent: #8bc34a; /* Verde Lima */
+            --color-bg: #f8f9fa; /* Fondo suave */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilos principales */
+        .infographic-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 50px 0;
+            margin-bottom: 40px;
+            border-bottom: 8px solid var(--color-secondary);
+        }
+
+        /* Estilo de la lista de integrantes */
+        .team-info {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+        }
+
+        .team-list {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .team-list li {
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .team-list li i {
+            color: var(--color-accent); /* Icono de usuario con color de acento */
+        }
+        
+        /* Estilos de las tarjetas de información */
+        .infographic-card {
+            min-height: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            background: white;
+        }
+        .infographic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 77, 153, 0.2);
+        }
+        
+        .infographic-card .card-title {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .icon-lg {
+            font-size: 3.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos de Botones */
+        .btn-custom-doc {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+        .btn-custom-doc:hover {
+            background-color: #003366;
+            border-color: #003366;
+            color: white;
+        }
+        .btn-custom-github {
+            background-color: #333; /* Gris oscuro para GitHub */
+            border-color: #333;
+            color: white;
+        }
+        .btn-custom-github:hover {
+            background-color: black;
+            border-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="infographic-header text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Clasificación IRIS con Perceptrón Multicapa (MLP)</h1>
+            <p class="lead mb-4">Proyecto de Machine Learning desarrollado por el equipo <strong>specter</strong></p>
+            
+            <div class="mt-4 p-4 rounded shadow team-info mx-auto" style="max-width: 700px;">
+                <h4 class="h5 mb-3 text-white">Integrantes del Equipo:</h4>
+                <ul class="team-list text-white text-start">
+                    <li><i class="fas fa-user-circle me-2"></i> Salavaldez Cusi Gesu Francisco</li>
+                    <li><i class="fas fa-user-circle me-2"></i> Lizarraga Condori Juan Yasser</li>
+                    <li><i class="fas fa-user-circle me-2"></i> Prado Farfán Daniel Benjamyn</li>
+                    <li><i class="fas fa-user-circle me-2"></i> Macedo Ancori Danny Ronaldo</li>
+                    <li><i class="fas fa-user-circle me-2"></i> Rojas Canales Joseph Anibal</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row mb-5">
+            <h2 class="mb-5 text-center text-primary fw-bold">Objetivo del Proyecto y Criterios de Éxito</h2>
+
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 shadow infographic-card">
+                    <h4 class="card-title"><i class="fas fa-bullseye me-2"></i> Objetivo Principal</h4>
+                    <p class="card-text fs-6">Desarrollar y entrenar un modelo MLP robusto para clasificar correctamente las tres especies de Iris (setosa, versicolor, virginica).</p>
+                    <p class="card-text text-muted small">Se basa en las cuatro medidas físicas de la flor (sépalo y pétalo).</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card p-4 shadow infographic-card bg-primary text-white" style="background-color: var(--color-primary) !important;">
+                    <h4 class="card-title text-white"><i class="fas fa-check-circle me-2"></i> Criterios de Éxito</h4>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2"><i class="fas fa-code me-2 text-warning"></i> <strong>Técnico:</strong> Exactitud (Accuracy) en prueba mayor o igual a 95%.</li>
+                        <li class="mb-2"><i class="fas fa-chart-line me-2 text-warning"></i> <strong>Analítico:</strong> F1-Score Ponderado mayor o igual a 0.95.</li>
+                        <li><i class="fas fa-box-open me-2 text-warning"></i> <strong>Despliegue:</strong> Modelo y Preprocesador (Escalador) guardados funcionalmente.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5 text-center">
+            <h2 class="mb-5 text-center text-primary fw-bold">Preparación de Datos (Fases 2 y 3)</h2>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card infographic-card p-3">
+                    <div class="card-body">
+                        <div class="icon-lg"><i class="fas fa-database"></i></div>
+                        <h5 class="card-title">Dataset IRIS</h5>
+                        <p class="card-text">Consta de <strong>150 muestras</strong> distribuidas en 3 clases, con 50 muestras por cada especie (perfectamente balanceado).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card infographic-card p-3">
+                    <div class="card-body">
+                        <div class="icon-lg"><i class="fas fa-cogs"></i></div>
+                        <h5 class="card-title">Transformaciones Clave</h5>
+                        <p class="card-text">Variables escaladas con <strong>StandardScaler</strong> y etiquetas codificadas a <strong>One-Hot Encoding</strong>.</p>
+                        <p class="card-text small text-muted">La estandarización mejora la convergencia del MLP.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card infographic-card p-3">
+                    <div class="card-body">
+                        <div class="icon-lg"><i class="fas fa-columns"></i></div>
+                        <h5 class="card-title">División Estratificada</h5>
+                        <p class="card-text">Dataset dividido manteniendo la proporción de clases (estratificado):</p>
+                        <p class="card-text">Entrenamiento: <strong>70%</strong>, Validación: <strong>15%</strong>, Prueba: <strong>15%</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5 text-center">
+            <h2 class="mb-5 text-center text-primary fw-bold">Evaluación y Métricas Finales</h2>
+
+            <div class="col-md-6 mb-4">
+                <div class="card infographic-card bg-success text-white p-4" style="background-color: var(--color-success) !important;">
+                    <h4 class="card-title text-white">Rendimiento en Conjunto de Prueba</h4>
+                    <h4 class="display-6 fw-bold">Accuracy: 95.65% (0.96)</h4>
+                    <h5 class="fw-bold">F1-Score Ponderado: Aprox. 0.96</h5>
+                    <p class="card-text">El modelo clasificó correctamente <strong>22 de las 23 muestras</strong>, superando ambos criterios de éxito ($\ge 0.95$).</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card infographic-card p-4">
+                    <h4 class="card-title"><i class="fas fa-exclamation-triangle me-2"></i> Error Concentrado</h4>
+                    <ul class="list-unstyled text-start fs-6">
+                        <li><strong>Setosa (Clase 0):</strong> Rendimiento perfecto (100% de métricas).</li>
+                        <li><strong>Único Error (1/23):</strong> Un caso real de <strong>versicolor</strong> (Clase 1) fue clasificado incorrectamente como <strong>virginica</strong> (Clase 2).</li>
+                        <li><strong>Causa:</strong> Confusión habitual entre <em>versicolor</em> y <em>virginica</em> debido al solapamiento de sus características.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-5 text-center">
+            <h2 class="mb-5 text-center text-primary fw-bold">Despliegue y Artefactos (Fase 6)</h2>
+
+            <div class="col-md-6 mb-4">
+                <div class="card infographic-card p-4">
+                    <h4 class="card-title"><i class="fas fa-box-open me-2"></i> Artefactos para Producción</h4>
+                    <p class="card-text">Se exportaron dos componentes críticos para garantizar la funcionalidad fuera del entorno de entrenamiento:</p>
+                    <ul class="list-unstyled text-start mx-auto" style="max-width: 300px;">
+                        <li><i class="fas fa-archive me-2 text-info"></i> <strong>Modelo MLP:</strong> <code>iris_mlp_model.h5</code>.</li>
+                        <li><i class="fas fa-archive me-2 text-info"></i> <strong>Escalador:</strong> <code>iris_scaler.pkl</code>.</li>
+                    </ul>
+                    <p class="card-text text-muted small">El Escalador es obligatorio para estandarizar nuevos datos antes de la predicción.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card infographic-card p-4">
+                    <h4 class="card-title"><i class="fas fa-shipping-fast me-2"></i> Proceso de Predicción (Flujo)</h4>
+                    <ol class="list-unstyled text-start mx-auto fs-6" style="max-width: 400px;">
+                        <li>1. Entrada de 4 medidas.</li>
+                        <li>2. <strong>Preprocesamiento:</strong> Aplicación de <code>scaler.transform()</code>.</li>
+                        <li>3. Inferencia: <code>model.predict()</code> (genera vector de probabilidades).</li>
+                        <li>4. Resultado: Mapeo a nombre legible (ej. "virginica") y confianza.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5 text-center">
+            <div class="col-12">
+                <hr class="mb-4 text-secondary">
+                <h2 class="mb-4 text-primary fw-bold">Accede al Proyecto Completo</h2>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <a href="#" class="btn btn-custom-doc btn-lg w-75 shadow-sm" role="button">
+                    <i class="fas fa-file-alt me-2"></i> Documentación (Informe Final)
+                </a>
+                <p class="mt-2 text-muted small">Revisar el proceso completo y la justificación de la arquitectura del MLP.</p>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <a href="#" class="btn btn-custom-github btn-lg w-75 shadow-sm" role="button">
+                    <i class="fab fa-github me-2"></i> Código Fuente (GitHub)
+                </a>
+                <p class="mt-2 text-muted small">Descargar el código, los artefactos (`.h5`, `.pkl`) y los scripts de prueba.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
